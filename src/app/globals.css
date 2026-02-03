@@ -1,26 +1,141 @@
+/* stylelint-disable at-rule-no-unknown */
 @import "tailwindcss";
+@import "tw-animate-css";
+/* stylelint-enable at-rule-no-unknown */
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* =========================
+   Fonts
+========================= */
+@font-face {
+  font-family: "Ethnocentric";
+  src: url("/fonts/Ethnocentric-Regular.otf") format("opentype");
+  font-display: swap;
+  font-weight: 400;
+  font-style: normal;
 }
 
+@font-face {
+  font-family: "Druk Condensed";
+  src: url("/fonts/Druk-Condensed-Bold.otf") format("opentype");
+  font-display: swap;
+  font-weight: 700;
+  font-style: normal;
+}
+
+@custom-variant dark (&:is(.dark *));
+
+/* =========================
+   Theme Tokens
+========================= */
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* =========================
+   Root Colors
+========================= */
+:root {
+  --radius: 0.75rem;
+
+  /* IMPORTANT:
+     Body background MUST match hero
+     so the scrollbar gutter blends in */
+  --background: #000000;
+  --foreground: #ffffff;
+}
+
+.dark {
+  --background: #0b1220;
+  --foreground: #e5e7eb;
+}
+
+/* =========================
+   Base Reset
+========================= */
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+    overflow-x: hidden;
+    width: 100vw;
+    overflow-y: overlay;
+    background-color: var(--background);
+    color: var(--foreground);
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+    overflow-x: hidden;
+    overflow-y: overlay;
+    background-color: var(--background);
+    color: var(--foreground);
+  }
+
+  /* Force all sections to extend full viewport width */
+  main,
+  section,
+  header,
+  footer {
+    width: 100vw;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* =========================
+   Loader Animation
+========================= */
+@keyframes mg-ripple-expand {
+  0% {
+    transform: scale(0.2);
+    opacity: 0.8;
+  }
+  70% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(2.4);
+    opacity: 0;
+  }
+}
+
+.mg-loader-ring {
+  animation: mg-ripple-expand 1.6s ease-out infinite;
+  border-radius: 9999px;
+}
+
+/* =========================
+   Overlay Scrollbar (Chromium)
+   Thumb-only appearance
+========================= */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  display: none;
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: transparent;
+}
+
+/* =========================
+   Firefox (best possible)
+========================= */
+html {
+  scrollbar-width: none;
 }

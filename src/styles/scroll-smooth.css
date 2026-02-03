@@ -1,0 +1,20 @@
+/* Add this to your globals.css file for optimal scroll performance */
+html {
+  scroll-behavior: auto !important; /* Override any CSS smooth scroll */
+}
+
+body {
+  overscroll-behavior: none; /* Prevent bounce on mobile */
+}
+
+/* Ensure smooth scrolling works with all elements */
+* {
+  scroll-behavior: auto !important;
+}
+
+/* Optimize for GPU acceleration */
+.smooth-scroll-container {
+  will-change: transform;
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
