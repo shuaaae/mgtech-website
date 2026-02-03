@@ -66,7 +66,7 @@ export function Solutions() {
                 At MGTech, progress begins with trust — and innovation follows.
               </p>
             </div>
-
+              
             {/* CTA Button */}
             <motion.button 
               whileHover={{ x: 8 }}

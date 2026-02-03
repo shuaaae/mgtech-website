@@ -3,6 +3,7 @@ import { Hero } from "@/sections/Hero"
 import { Services } from "@/sections/Services"
 import { Solutions } from "@/sections/Solutions"
 import { Expertise } from "@/sections/Expertise"
+import { WhatWeDo } from "@/sections/WhatWeDo"
 import { Footer } from "@/components/Footer"
 import { Navbar } from "@/components/Navbar"
 
@@ -16,6 +17,7 @@ export default function Home() {
         <Services />
         <Solutions />
         <Expertise />
+        <WhatWeDo />
         <CTA />
       </main>
       <Footer />
