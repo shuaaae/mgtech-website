@@ -36,7 +36,7 @@ export function Solutions() {
           >
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-white leading-tight tracking-tight mb-3" style={{ fontFamily: 'var(--font-montserrat)' }}>
               REDEFINING
-              <span className="bg-[#3EF2C7] text-black px-0 py-0 inline-block font-semibold" style={{ paddingTop: '0.0em', paddingBottom: '0.0em', marginTop: '0.0em', marginBottom: '0.0em', lineHeight: '0.8', fontFamily: 'var(--font-montserrat)' }}> DIGITAL SERVICES</span>
+              <span className="font-semibold bg-[#3EF2C7] text-black" style={{ fontFamily: 'var(--font-montserrat)', display: 'block', marginLeft: '0em', boxSizing: 'border-box', width: 'fit-content', padding: '0em 0em', lineHeight: '0.8' }}> DIGITAL SERVICES</span>
             </h1>
           </motion.div>
 

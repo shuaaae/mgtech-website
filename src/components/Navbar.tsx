@@ -8,9 +8,9 @@ import { useEffect, useState } from "react"
 import { useSearch } from "@/contexts/SearchContext"
 
 const navItems = [
-  { label: "Services", href: "#services" },
   { label: "Solutions", href: "#solutions" },
-  { label: "Insights", href: "#insights" },
+  { label: "Expertise", href: "#expertise" },
+  { label: "What We Do", href: "#what-we-do" },
   { label: "Contact", href: "#contact" },
 ]
 
@@ -57,17 +57,20 @@ export function Navbar() {
         </Link>
 
         <div className="ml-auto flex items-center gap-10">
-          <nav className="hidden items-center gap-10 text-xs font-semibold uppercase tracking-[0.16em] text-white/85 md:flex font-[Ethnocentric] leading-relaxed">
+          <nav
+            className="hidden items-center gap-15 text-sm font-extrabold uppercase tracking-[0.00em] text-white/85 md:flex leading-relaxed"
+            style={{ fontFamily: 'Poppins, var(--font-montserrat), sans-serif' }}
+          >
             {navItems.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
                 className="group relative inline-block overflow-hidden leading-relaxed"
               >
-                <span className={`block translate-y-0 transition-transform duration-500 group-hover:-translate-y-full ${item.label === "Solutions" || item.label === "Contact" ? "group-hover:text-[#3EF2C7]" : "group-hover:text-amber-300"}`}>
+                <span className={`block translate-y-0 transition-transform duration-500 group-hover:-translate-y-full ${item.label === "Insights" ? "group-hover:text-[#00D4FF]" : item.label === "Contact" ? "group-hover:text-[#f05bff]" : item.label === "Solutions" ? "group-hover:text-[#3EF2C7]" : "group-hover:text-amber-300"}`}>
                   {item.label}
                 </span>
-                <span className={`absolute left-0 top-full block translate-y-1 opacity-0 transition-all duration-500 group-hover:-translate-y-full group-hover:opacity-100 ${item.label === "Solutions" || item.label === "Contact" ? "text-[#3EF2C7]" : "text-amber-300"}`}>
+                <span className={`absolute left-0 top-full block translate-y-1 opacity-0 transition-all duration-500 group-hover:-translate-y-full group-hover:opacity-100 ${item.label === "Insights" ? "text-[#00D4FF]" : item.label === "Contact" ? "text-[#f05bff]" : item.label === "Solutions" ? "text-[#3EF2C7]" : "text-amber-300"}`}>
                   {item.label}
                 </span>
               </Link>

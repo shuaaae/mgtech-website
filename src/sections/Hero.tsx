@@ -46,7 +46,7 @@ export function Hero() {
         loop
         playsInline
       />
-      <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/40" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/60" />
       
       <button
         onClick={toggleMute}

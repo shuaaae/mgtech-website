@@ -5,7 +5,7 @@ import { ArrowRight } from "lucide-react"
 
 export function Expertise() {
   return (
-    <section className="w-screen bg-black py-32 lg:py-40 min-h-screen">
+    <section id="expertise" className="w-screen bg-black py-32 lg:py-40 min-h-screen" style={{ fontFamily: 'var(--font-sans)' }}>
       <div className="w-full px-8 lg:px-20">
         <div className="grid grid-cols-1 md:grid-cols-3 relative max-w-[100rem] mx-auto">
 
@@ -52,8 +52,8 @@ export function Expertise() {
                 viewport={{ once: false, amount: 0.3 }}
                 style={{ paddingTop: '100px' }}
               >
-                <p className="text-5xl font-bold text-white mb-2">OUR</p>
-                <span className="inline-block bg-[#3EF2C7] text-black text-5xl font-bold px-2">
+                <p className="text-5xl font-bold text-white mb-0" style={{ fontFamily: 'var(--font-montserrat)' }}>OUR</p>
+                <span className="font-semibold bg-[#3EF2C7] text-black text-5xl font-bold" style={{ fontFamily: 'var(--font-montserrat)', display: 'block', marginLeft: '0em', boxSizing: 'border-box', width: 'fit-content', padding: '0em 0em', lineHeight: '0.9' }}>
                   {item.title}
                 </span>
               </motion.div>
@@ -64,7 +64,7 @@ export function Expertise() {
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.4, delay: i * 0.3 + 0.2 }}
                 viewport={{ once: false, amount: 0.3 }}
-                className="mt-0 space-y-4 text-white/90 text-lg leading-relaxed font-semibold" style={{ fontFamily: '"Druk Condensed", sans-serif', marginTop: '-190px' }}
+                className="mt-0 space-y-4 text-white/90 text-base leading-relaxed" style={{ fontFamily: 'var(--font-montserrat)', marginTop: '-190px' }}
               >
                 {item.text.map((t, idx) => (
                   <p key={idx}>{t}</p>
@@ -77,7 +77,7 @@ export function Expertise() {
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: i * 0.3 + 0.4 }}
                 viewport={{ once: false, amount: 0.3 }}
-                className="mt-8 self-start bg-[#3EF2C7] text-black px-6 py-3 text-sm font-semibold uppercase tracking-widest flex items-center gap-3"
+                className="mt-8 self-start bg-[#3EF2C7] text-black px-6 py-3 text-sm font-semibold uppercase tracking-[0.1em] flex items-center gap-3" style={{ fontFamily: 'var(--font-montserrat)' }}
               >
                 READ MORE
                 <ArrowRight className="w-4 h-4" />

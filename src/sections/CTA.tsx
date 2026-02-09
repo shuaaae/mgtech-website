@@ -1,46 +1,69 @@
 "use client"
 
 import { motion } from "framer-motion"
-import Link from "next/link"
 
 export function CTA() {
   return (
-    <section id="contact" className="py-16 sm:py-20 min-h-screen flex items-center">
-      <div className="mx-auto max-w-5xl px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 18 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.5 }}
-          transition={{ duration: 0.5 }}
-          className="rounded-3xl border border-border/60 bg-gradient-to-br from-foreground to-foreground/90 px-8 py-10 sm:px-12 sm:py-14"
+    <section
+      id="contact"
+      className="min-h-screen w-full bg-black text-white flex items-center justify-center px-6 py-20"
+      style={{ fontFamily: 'var(--font-montserrat)' }}
+    >
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.4 }}
+        transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+        className="max-w-4xl w-full flex flex-col items-center text-center gap-8 -mt-6"
+      >
+        <motion.p
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.1, duration: 0.6 }}
+          className="text-xs sm:text-sm uppercase tracking-[0.18em] text-white/70"
         >
-          <div className="flex flex-col gap-6 text-background sm:flex-row sm:items-center sm:justify-between">
-            <div className="space-y-2">
-              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-background/70">
-                Let’s build together
-              </p>
-              <h3 className="text-2xl font-semibold sm:text-3xl">Bring resilience and clarity to your roadmap.</h3>
-              <p className="max-w-xl text-background/80">
-                We partner with technology leaders to deliver secure, observable, and performant platforms.
-              </p>
-            </div>
-            <div className="flex gap-3">
-              <Link
-                href="mailto:hello@mgtech.com"
-                className="rounded-full bg-background px-4 py-2 text-sm font-semibold text-foreground transition hover:-translate-y-0.5 hover:shadow-sm"
-              >
-                Email MGTech
-              </Link>
-              <Link
-                href="#services"
-                className="rounded-full border border-background/40 px-4 py-2 text-sm font-semibold text-background transition hover:-translate-y-0.5 hover:bg-background/10"
-              >
-                View services
-              </Link>
-            </div>
+          Ready to talk
+        </motion.p>
+
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2, duration: 0.7 }}
+          className="space-y-0"
+        >
+          <p className="text-7xl sm:text-8xl md:text-9xl font-semibold leading-tight -mb-4">
+            LET'S
+          </p>
+          <div className="inline-flex items-center">
+            <span
+              className="text-7xl sm:text-8xl md:text-9xl font-semibold bg-[#f05bff] text-black px-1 leading-none inline-block"
+              style={{ lineHeight: '0.82' }}
+            >
+              CONNECT
+            </span>
           </div>
         </motion.div>
-      </div>
+
+        <motion.p
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3, duration: 0.6 }}
+          className="text-x0 sm:text-1xl md:text-2xl text-white/80 max-w-4xl leading-tight space-y-1"
+        >
+          <span className="block">It all starts with a conversation.</span>
+          <span className="block">Tell us about your plans we'll help make them happen.</span>
+        </motion.p>
+
+        <motion.button
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.4, duration: 0.6 }}
+          className="mt-4 px-6 sm:px-8 py-3 text-sm font-semibold uppercase tracking-[0.12em] bg-[#f05bff] text-black hover:translate-y-[-2px] transition-transform duration-200"
+        >
+          Contact Us
+        </motion.button>
+      </motion.div>
     </section>
   )
 }
+
