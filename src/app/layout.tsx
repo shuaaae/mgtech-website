@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import { Geist_Mono, Plus_Jakarta_Sans, Montserrat } from "next/font/google"
 import "./globals.css"
 import { ClientLoaderShell } from "@/components/ClientLoaderShell"
+import { ConsoleSilencer } from "@/components/ConsoleSilencer"
 import { SearchProvider } from "@/contexts/SearchContext"
 import { SearchWrapper } from "@/components/SearchWrapper"
 
@@ -43,6 +44,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${jakarta.variable} ${geistMono.variable} ${montserrat.variable} antialiased`}>
         <SearchProvider>
+          <ConsoleSilencer />
           <ClientLoaderShell>{children}</ClientLoaderShell>
           <SearchWrapper />
         </SearchProvider>

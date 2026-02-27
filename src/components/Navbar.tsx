@@ -67,10 +67,10 @@ export function Navbar() {
                 href={item.href}
                 className="group relative inline-block overflow-hidden leading-relaxed"
               >
-                <span className={`block translate-y-0 transition-transform duration-500 group-hover:-translate-y-full ${item.label === "Insights" ? "group-hover:text-[#00D4FF]" : item.label === "Contact" ? "group-hover:text-[#f05bff]" : item.label === "Solutions" ? "group-hover:text-[#3EF2C7]" : "group-hover:text-amber-300"}`}>
+                <span className={`block translate-y-0 transition-transform duration-500 group-hover:-translate-y-full ${item.label === "What We Do" ? "group-hover:text-[#00D4FF]" : item.label === "Insights" ? "group-hover:text-[#00D4FF]" : item.label === "Contact" ? "group-hover:text-[#f05bff]" : item.label === "Solutions" ? "group-hover:text-[#3EF2C7]" : "group-hover:text-amber-300"}`}>
                   {item.label}
                 </span>
-                <span className={`absolute left-0 top-full block translate-y-1 opacity-0 transition-all duration-500 group-hover:-translate-y-full group-hover:opacity-100 ${item.label === "Insights" ? "text-[#00D4FF]" : item.label === "Contact" ? "text-[#f05bff]" : item.label === "Solutions" ? "text-[#3EF2C7]" : "text-amber-300"}`}>
+                <span className={`absolute left-0 top-full block translate-y-1 opacity-0 transition-all duration-500 group-hover:-translate-y-full group-hover:opacity-100 ${item.label === "What We Do" ? "text-[#00D4FF]" : item.label === "Insights" ? "text-[#00D4FF]" : item.label === "Contact" ? "text-[#f05bff]" : item.label === "Solutions" ? "text-[#3EF2C7]" : "text-amber-300"}`}>
                   {item.label}
                 </span>
               </Link>
