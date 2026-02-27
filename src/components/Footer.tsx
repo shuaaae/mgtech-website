@@ -1,4 +1,6 @@
 import Link from "next/link"
+import Image from "next/image"
+import { Facebook, Instagram, X, Youtube, Linkedin } from "lucide-react"
 
 const footerLinks = [
   {
@@ -65,22 +67,48 @@ export function Footer() {
               <span>Email address</span>
               <span className="text-[#f05bff] text-base">→</span>
             </div>
-            <div className="flex items-center gap-3 text-white/70 text-sm">
-              <span className="border border-white/30 px-3 py-2">FB</span>
-              <span className="border border-white/30 px-3 py-2">IG</span>
-              <span className="border border-white/30 px-3 py-2">X</span>
-              <span className="border border-white/30 px-3 py-2">YT</span>
-              <span className="border border-white/30 px-3 py-2">IN</span>
+            <div className="flex items-center gap-3 text-sm">
+              <a href="#" className="border border-white/30 p-3 transition-colors">
+                <Facebook size={20} className="text-[#f05bff]" />
+              </a>
+              <a href="#" className="border border-white/30 p-3 transition-colors">
+                <Instagram size={20} className="text-[#f05bff]" />
+              </a>
+              <a href="#" className="border border-white/30 p-3 transition-colors">
+                <X size={20} className="text-[#f05bff]" />
+              </a>
+              <a href="#" className="border border-white/30 p-3 transition-colors">
+                <Youtube size={20} className="text-[#f05bff]" />
+              </a>
+              <a href="#" className="border border-white/30 p-3 transition-colors">
+                <Linkedin size={20} className="text-[#f05bff]" />
+              </a>
             </div>
           </div>
         </div>
       </footer>
-      <div className="copy-right w-full text-[11px] uppercase tracking-[0.16em] text-white/60 px-6 py-4 flex flex-col sm:flex-row sm:items-center sm:justify-between bg-black/40">
-        <span>Copyright © 2026 MGTech. All rights reserved.</span>
-        <span className="flex gap-4 mt-2 sm:mt-0">
-          <a href="#privacy" className="hover:text-white transition">Privacy Policy</a>
-          <a href="#terms" className="hover:text-white transition">Terms & Conditions</a>
-        </span>
+      <div className="border-t border-white/10"></div>
+      <div className="copy-right w-full text-[11px] font-bold uppercase tracking-[0.16em] text-white/80 px-4 py-4 flex items-center justify-center bg-black/40">
+        <div className="flex flex-col">
+          <span>Copyright © 2026 MGTech. All rights reserved.</span>
+          <span className="flex gap-2 mt-2">
+            <a href="#privacy" className="hover:text-white transition">Privacy Policy</a>
+            <span>|</span>
+            <a href="#terms" className="hover:text-white transition">Terms & Conditions</a>
+          </span>
+        </div>
+        <div className="mx-140">
+          {/* Spacer */}
+        </div>
+        <div className="flex items-center">
+          <Image
+            src="/mgtechlogo.png"
+            alt="MGTECH Logo"
+            width={160}
+            height={40}
+            className="h-auto w-auto"
+          />
+        </div>
       </div>
     </div>
   )
