@@ -10,8 +10,8 @@ import Image from "next/image";
 const Main: FunctionComponent = () => {
   const [containerItems] = useState([
     {
-      largeImage: "/team/BOSSING.jpg",
-      name: "JOHN CARL EDCEL MANUEL",
+      largeImage: "/team/BOSSINGS.png",
+      name: "JC EDCEL MANUEL",
       viceChairperson: "Founder / Head Developer",
       description: "Leads the development team, ensuring all software solutions meet the highest standards of performance, security, and scalability.",
       containerGridColumn: "1" as const,
@@ -20,7 +20,7 @@ const Main: FunctionComponent = () => {
     },
     {
       largeImage: "/team/acey.jpg",
-      name: "ACEY CONCEPTION",
+      name: "ACEY CONCEPCION",
       viceChairperson: "Development Team Lead",
       description: "Manages development teams and ensures project delivery excellence.",
       containerGridColumn: "2" as const,
