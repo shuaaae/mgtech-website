@@ -70,6 +70,7 @@
     overflow-x: hidden;
     width: 100vw;
     overflow-y: overlay;
+    scroll-snap-type: y mandatory;
     background-color: var(--background);
     color: var(--foreground);
   }
@@ -90,6 +91,12 @@
   header,
   footer {
     width: 100vw;
+  }
+
+  section,
+  footer {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
   }
 }
 
@@ -138,4 +145,42 @@
 ========================= */
 html {
   scrollbar-width: none;
+}
+
+/* =========================
+   Meet the MG's animations
+========================= */
+.grid-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(251, 191, 36, 0.25);
+  clip-path: inset(100% 0 0 0);
+  transition: clip-path 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  pointer-events: none;
+  z-index: 2;
+}
+.grid-card:hover .grid-card-overlay,
+.grid-card-overlay--active {
+  clip-path: inset(0% 0 0 0);
+}
+@keyframes fadeInFromBelow {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in-below {
+  animation: fadeInFromBelow 1.0s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+@keyframes revealFromBelow {
+  from { clip-path: inset(100% 0 0 0); transform: translateY(20px) scale(1.08); }
+  to   { clip-path: inset(0% 0 0 0); transform: translateY(0) scale(1); }
+}
+.animate-reveal-from-below {
+  animation: revealFromBelow 1.0s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.sticky-scroll-section {
+  display: flex;
+  align-items: flex-start;
+  overflow: visible;
 }

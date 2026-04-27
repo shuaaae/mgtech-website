@@ -3,7 +3,7 @@
 import { motion, AnimatePresence } from "framer-motion"
 import { ArrowRight } from "lucide-react"
 import Image from "next/image"
-import { useState, useEffect, useRef } from "react"
+import { useState, useEffect } from "react"
 
 // Page content data
 const pagesData = [
@@ -93,8 +93,10 @@ export function WhatWeDo() {
     const inView = rect.top < windowHeight && rect.bottom > 0
     
     if (inView) {
-      setIsInView(true)
-      setHasRevealed(true)
+      setTimeout(() => {
+        setIsInView(true)
+        setHasRevealed(true)
+      }, 0)
     }
   }, [])
 
@@ -117,7 +119,6 @@ export function WhatWeDo() {
   // Get current and next page data
   const currentPageData = pagesData[currentPage]
   const nextPageIndex = (currentPage + 1) % 3
-  const prevPageIndex = currentPage > 0 ? currentPage - 1 : 2
   const nextPageData = pagesData[nextPageIndex]
 
   // Slide animation variants

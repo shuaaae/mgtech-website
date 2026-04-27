@@ -32,7 +32,7 @@ export function CTA() {
           className="space-y-0"
         >
           <p className="text-7xl sm:text-8xl md:text-9xl font-semibold leading-tight -mb-4">
-            LET'S
+            LET&apos;S
           </p>
           <div className="inline-flex items-center">
             <span
@@ -51,7 +51,7 @@ export function CTA() {
           className="text-x0 sm:text-1xl md:text-2xl text-white/80 max-w-4xl leading-tight space-y-1"
         >
           <span className="block">It all starts with a conversation.</span>
-          <span className="block">Tell us about your plans we'll help make them happen.</span>
+          <span className="block">Tell us about your plans we&apos;ll help make them happen.</span>
         </motion.p>
 
         <motion.button

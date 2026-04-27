@@ -24,6 +24,7 @@ export function Footer() {
   return (
     <div className="w-full">
       <footer
+        id="footer"
         className="border-t bg-card/60 min-h-screen flex items-start pt-40"
         style={{ borderColor: 'rgba(255,255,255,0.12)' }}
       >

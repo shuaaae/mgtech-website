@@ -8,21 +8,25 @@ export function SmoothScroll({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     const lenis = new Lenis({
-      duration: 1.2, // Controls scroll speed (lower = faster)
-      easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Custom easing function
+      duration: 1.2,
+      easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       infinite: false,
     })
 
     lenisRef.current = lenis
 
-    // Connect Lenis to requestAnimationFrame loop
+    const initGsap = async () => {
+      const { ScrollTrigger } = await import('gsap/ScrollTrigger')
+      lenis.on('scroll', ScrollTrigger.update)
+    }
+    initGsap()
+
     function raf(time: number) {
       lenis.raf(time)
       requestAnimationFrame(raf)
     }
     requestAnimationFrame(raf)
 
-    // Clean up on unmount
     return () => {
       lenis.destroy()
     }

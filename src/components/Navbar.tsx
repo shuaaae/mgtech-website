@@ -5,19 +5,27 @@ import { Menu, Search, X } from "lucide-react"
 import { motion } from "framer-motion"
 import Link from "next/link"
 import { useEffect, useState } from "react"
+import { usePathname } from "next/navigation"
 import { useSearch } from "@/contexts/SearchContext"
 
 const navItems = [
   { label: "Solutions", href: "#solutions" },
   { label: "Expertise", href: "#expertise" },
   { label: "What We Do", href: "#what-we-do" },
+  { label: "Meet the MG's", href: "/meet-the-mgs" },
   { label: "Contact", href: "#contact" },
 ]
 
 export function Navbar() {
   const [open, setOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const pathname = usePathname()
   const { isSearchOpen, openSearch, closeSearch } = useSearch()
+
+  const resolveHref = (href: string) => {
+    if (href.startsWith('#') && pathname !== '/') return `/${href}`
+    return href
+  }
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 16)
@@ -64,7 +72,7 @@ export function Navbar() {
             {navItems.map((item) => (
               <Link
                 key={item.href}
-                href={item.href}
+                href={resolveHref(item.href)}
                 className="group relative inline-block overflow-hidden leading-relaxed"
               >
                 <span className={`block translate-y-0 transition-transform duration-500 group-hover:-translate-y-full ${item.label === "What We Do" ? "group-hover:text-[#00D4FF]" : item.label === "Insights" ? "group-hover:text-[#00D4FF]" : item.label === "Contact" ? "group-hover:text-[#f05bff]" : item.label === "Solutions" ? "group-hover:text-[#3EF2C7]" : "group-hover:text-amber-300"}`}>
@@ -123,7 +131,7 @@ export function Navbar() {
             {navItems.map((item) => (
               <Link
                 key={item.href}
-                href={item.href}
+                href={resolveHref(item.href)}
                 className="py-1 transition-colors hover:text-white"
                 onClick={() => setOpen(false)}
               >
@@ -131,7 +139,7 @@ export function Navbar() {
               </Link>
             ))}
             <Link
-              href="#contact"
+              href={resolveHref('#contact')}
               className="rounded-full bg-white/90 px-4 py-2 text-center text-sm font-semibold text-foreground"
               onClick={() => setOpen(false)}
             >

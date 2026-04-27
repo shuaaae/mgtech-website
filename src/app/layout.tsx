@@ -3,6 +3,7 @@ import { Geist_Mono, Plus_Jakarta_Sans, Montserrat } from "next/font/google"
 import "./globals.css"
 import { ClientLoaderShell } from "@/components/ClientLoaderShell"
 import { ConsoleSilencer } from "@/components/ConsoleSilencer"
+import { SectionSnapScroll } from "@/components/SectionSnapScroll"
 import { SearchProvider } from "@/contexts/SearchContext"
 import { SearchWrapper } from "@/components/SearchWrapper"
 
@@ -45,6 +46,7 @@ export default function RootLayout({
       <body className={`${jakarta.variable} ${geistMono.variable} ${montserrat.variable} antialiased`}>
         <SearchProvider>
           <ConsoleSilencer />
+          <SectionSnapScroll />
           <ClientLoaderShell>{children}</ClientLoaderShell>
           <SearchWrapper />
         </SearchProvider>

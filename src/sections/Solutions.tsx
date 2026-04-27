@@ -59,7 +59,7 @@ export function Solutions() {
               </p>
               
               <p>
-                We collaborate closely with decision-makers, technical teams, and stakeholders to design systems that are secure, sustainable, and built for real-world impact. For us, innovation is not about disruption alone — it's about responsibility, reliability, and results.
+                We collaborate closely with decision-makers, technical teams, and stakeholders to design systems that are secure, sustainable, and built for real-world impact. For us, innovation is not about disruption alone — it&apos;s about responsibility, reliability, and results.
               </p>
               
               <p className="font-light italic">
