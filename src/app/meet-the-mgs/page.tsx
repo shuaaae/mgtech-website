@@ -11,7 +11,7 @@ const Main: FunctionComponent = () => {
   const [containerItems] = useState([
     {
       largeImage: "/team/BOSSINGS.png",
-      name: "JC EDCEL MANUEL",
+      name: "JOHN CARL EDCEL MANUEL",
       viceChairperson: "Founder / Head Developer",
       description: "Leads the development team, ensuring all software solutions meet the highest standards of performance, security, and scalability.",
       containerGridColumn: "1" as const,
@@ -20,7 +20,7 @@ const Main: FunctionComponent = () => {
     },
     {
       largeImage: "/team/acey.jpg",
-      name: "ACEY CONCEPCION",
+      name: "ACEY CONCEPTION",
       viceChairperson: "Development Team Lead",
       description: "Manages development teams and ensures project delivery excellence.",
       containerGridColumn: "2" as const,
@@ -54,6 +54,24 @@ const Main: FunctionComponent = () => {
       containerGridRow: "3" as const,
       containerPadding: undefined,
     },
+    {
+      largeImage: "/team/Josh.JPG",
+      name: "JOSHUA M. GODALLE",
+      viceChairperson: "Water Boy",
+      description: "Keeps the team hydrated and energized, ensuring everyone stays refreshed and focused during intense development sessions.",
+      containerGridColumn: "2" as const,
+      containerGridRow: "3" as const,
+      containerPadding: undefined,
+    },
+    {
+      largeImage: "/team/Stephanie.png",
+      name: "STEPHANIE ALONTO",
+      viceChairperson: "Project Manager",
+      description: "Ensures every project is delivered on time, within scope, and meets client expectations.",
+      containerGridColumn: "1" as const,
+      containerGridRow: "4" as const,
+      containerPadding: undefined,
+    },
   ]);
 
   const [selectedMember, setSelectedMember] = useState(containerItems[0]);
@@ -63,6 +81,7 @@ const Main: FunctionComponent = () => {
   const rightGridRef = useRef<HTMLDivElement>(null);
   const leftColRef = useRef<HTMLDivElement>(null);
   const lastItemRef = useRef<HTMLDivElement>(null);
+  const imageRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     let ctx: { revert: () => void } | null = null;
@@ -80,28 +99,21 @@ const Main: FunctionComponent = () => {
       const lastItem = lastItemRef.current;
       if (!lastItem) return;
 
-      const leftColRect = leftCol.getBoundingClientRect();
-      const lastItemRect = lastItem.getBoundingClientRect();
-      const scrollDistance = Math.max(0, lastItemRect.bottom - leftColRect.bottom);
+      const imageEl = imageRef.current;
+      if (!imageEl) return;
+
+      const imageHeight = imageEl.offsetHeight;
+      const rightGridHeight = rightGrid.offsetHeight;
+      const scrollDistance = Math.max(0, rightGridHeight - imageHeight);
 
       ctx = gsap.context(() => {
-        const tl = gsap.timeline({
-          scrollTrigger: {
-            trigger: leftCol,
-            start: 'center center',
-            end: () => `+=${scrollDistance}`,
-            pin: leftCol,
-            pinSpacing: false,
-            scrub: 2.5,
-            anticipatePin: 1,
-            preventOverlaps: true,
-            fastScrollEnd: true,
-          },
-        });
-
-        tl.to(rightGrid, {
-          y: -scrollDistance,
-          ease: 'none',
+        ScrollTrigger.create({
+          trigger: leftCol,
+          start: 'center center',
+          end: () => `+=${scrollDistance}`,
+          pin: leftCol,
+          pinSpacing: false,
+          anticipatePin: 1,
         });
       }, section);
     };
@@ -153,11 +165,11 @@ const Main: FunctionComponent = () => {
             </div>
           </div>
         </header>
-        <section ref={sectionRef} className="sticky-scroll-section w-[1651.2px] gap-[462.4px] max-w-full text-right text-[32.6px] text-color-white-solid mb-80" style={{ fontFamily: 'Ethnocentric', height: '888px' }}>
+        <section ref={sectionRef} className="sticky-scroll-section w-[1651.2px] gap-[462.4px] max-w-full text-right text-[32.6px] text-color-white-solid mb-20" style={{ fontFamily: 'Ethnocentric' }}>
           <div ref={leftColRef} className="w-[660.5px] flex flex-col items-start pt-[153.6px] px-0 pb-0 box-border relative isolate max-w-full mq825:pt-[65px] mq825:box-border mq825:min-w-full mq1275:pt-[100px] mq1275:box-border mq1575:flex-1">
             <div className="self-stretch h-[888px] overflow-hidden shrink-0 flex items-start max-w-full">
               <div className="h-[888px] w-[660.5px] flex flex-col items-start shrink-0 max-w-full z-[1]">
-                <div className="self-stretch relative" style={{ height: '698.9px' }}>
+                <div ref={imageRef} className="self-stretch relative" style={{ height: '698.9px' }}>
                   <Image
                     className="absolute inset-0 w-full h-full object-cover border-t-[18px] border-l-[18px] border-r-[18px] border-b-0 border-amber-300"
                     alt={prevMember.name}
@@ -199,7 +211,7 @@ const Main: FunctionComponent = () => {
             </div>
           </div>
           <div className="w-[528.4px] flex flex-col items-start pt-[153.6px] px-0 pb-0 box-border max-w-full mq825:pt-[65px] mq825:box-border mq825:min-w-full mq450:pt-[42px] mq450:box-border mq1275:pt-[100px] mq1275:box-border mq1575:flex-1">
-            <div ref={rightGridRef} className="self-stretch h-[1412px] grid box-border grid-cols-[repeat(auto-fit,_minmax(164px,_1fr))] grid-rows-[319.218994140625px_339.2030029296875px_319.218994140625px_319.2030029296875px] gap-[38.4px]">
+            <div ref={rightGridRef} className="self-stretch grid box-border grid-cols-[repeat(auto-fit,_minmax(164px,_1fr))] grid-rows-[319px_339px_319px_auto] gap-[38.4px]">
               {containerItems.map((item, index) => (
                 <Container
                   key={index}

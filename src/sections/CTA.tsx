@@ -6,7 +6,7 @@ export function CTA() {
   return (
     <section
       id="contact"
-      className="min-h-screen w-full bg-black text-white flex items-center justify-center px-6 py-20"
+      className="min-h-screen w-full bg-black text-white flex items-center justify-center px-6 pt-10 pb-20"
       style={{ fontFamily: 'var(--font-montserrat)' }}
     >
       <motion.div
